@@ -7,9 +7,19 @@ class TestDrugInteractions(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Charger les données de test
+
         cls.data = load_data('data/drug_interactions.csv')
         if cls.data.empty:
             raise RuntimeError("Failed to load data for testing")
+=======
+        file_path = '/mnt/data/drug_interactions_corrected.csv'
+        print(f"Attempting to load data from {file_path}")  # Ajout de l'impression pour débogage
+        cls.data = load_data(file_path)
+        if cls.data.empty:
+            print(f"Data failed to load from {file_path}")  # Ajout de l'impression pour débogage
+            raise RuntimeError("Failed to load data for testing")
+        else:
+            print("Data loaded successfully")  # Ajout de l'impression pour débogage
 
     def test_load_data(self):
         # Vérifier que les données sont correctement chargées

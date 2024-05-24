@@ -2,7 +2,7 @@ import pytest
 from drug_interactions.interaction_checker import DrugInteractionChecker
 
 def setup_checker():
-    test_file_path = 'data/drug_interactions.csv'
+    test_file_path = '/Users/alexianero/Desktop/drug_interactions.csv'
     return DrugInteractionChecker(test_file_path)
 
 def test_check_interaction(setup_checker):

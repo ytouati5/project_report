@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv('/Users/yass/github/practical_programming/project_report/data/drug_interactions.csv')
+data = pd.read_csv('../data/drug_interactions.csv')
 data[['Drug1', 'Drug2']] = data.iloc[:, 0].str.split(';', expand=True)
 
 def check_interaction():

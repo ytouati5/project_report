@@ -2,6 +2,7 @@ import pandas as pd
 
 def load_data(file_path: str) -> pd.DataFrame:
     try:
+        print(f"Loading data from {file_path}")  # Ajout de l'impression pour débogage
         data = pd.read_csv(file_path, on_bad_lines='skip')
         data[['Drug1', 'Drug2']] = data.iloc[:, 0].str.split(';', expand=True)
         return data

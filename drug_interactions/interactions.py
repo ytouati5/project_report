@@ -1,61 +1,41 @@
-# drug_interactions/interactions.py
 import pandas as pd
-import os
 
-def load_data(file_path: str) -> pd.DataFrame:
+def load_data():
+    return pd.read_csv('../data/drug_interactions.csv')
 
-    try:
-        data = pd.read_csv(file_path, on_bad_lines='skip')
-=======
-    if not os.path.exists(file_path):
-        print(f"File {file_path} does not exist.")
-        return pd.DataFrame()
-    
-    try:
-        print(f"Loading data from {file_path}")  # Ajout de l'impression pour débogage
-        data = pd.read_csv(file_path, on_bad_lines='skip')
-        print(f"Data loaded successfully from {file_path}, preview:\n{data.head()}")  # Aperçu des premières lignes
-
-        data[['Drug1', 'Drug2']] = data.iloc[:, 0].str.split(';', expand=True)
-        return data
-    except Exception as e:
-        print(f"Error loading data: {e}")
-        return pd.DataFrame()
-
-
-def find_interaction(data: pd.DataFrame, drug1: str, drug2: str) -> bool:
-    interactions = data[((data['Drug1'].str.lower() == drug1) & (data['Drug2'].str.lower() == drug2)) |
-                        ((data['Drug1'].str.lower() == drug2) & (data['Drug2'].str.lower() == drug1))]
-    return not interactions.empty
-
-def find_all_interactions(data: pd.DataFrame, drug: str) -> pd.DataFrame:
-    interactions = data[(data['Drug1'].str.lower() == drug) | (data['Drug2'].str.lower() == drug)]
-    return interactions
-
-def check_interaction(data: pd.DataFrame):
-    choice = input("Do you want to (1) check interaction between two drugs or (2) check all interactions for one drug? Enter 1 or 2: ").strip()
-    
-    if choice == '1':
-        drug1 = input("Enter the first drug name: ").strip().lower()
-        drug2 = input("Enter the second drug name: ").strip().lower()
-        if find_interaction(data, drug1, drug2):
-            print("Do not associate these two drugs together.")
-        else:
-            print("No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional.")
-    
-    elif choice == '2':
-        drug = input("Enter the drug name: ").strip().lower()
-        interactions = find_all_interactions(data, drug)
-        if not interactions.empty:
-            print(f"List of interactions for {drug}:")
-            for index, row in interactions.iterrows():
-                print(f"{row['Drug1']} interacts with {row['Drug2']}")
-            print(f"There are {len(interactions)} drugs interacting with {drug}.")
-        else:
-            print("No listed interactions. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional.")
-    
+def check_interaction(df, drug1, drug2):
+    interactions = df[(df['Drug1'] == drug1) & (df['Drug2'] == drug2) | (df['Drug1'] == drug2) & (df['Drug2'] == drug1)]
+    if not interactions.empty:
+        print("Do not associate these two drugs together.")
     else:
-        print("Invalid input. Please enter 1 or 2.")
+        print("No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional.")
 
-=======
+def list_interactions(df, drug):
+    associated_drugs = pd.concat([
+        df[df['Drug1'] == drug]['Drug2'],  # If 'drug' is in 'Drug1', get corresponding 'Drug2'
+        df[df['Drug2'] == drug]['Drug1']   # If 'drug' is in 'Drug2', get corresponding 'Drug1'
+    ]).unique()  # Remove duplicates
+    
+    associated_drugs.sort()  # Alphabetically sort the drugs
 
+    # Output the total count and the list of drugs that should not be associated with 'drug'
+    print(f"{drug} should not be associated with {len(associated_drugs)} drugs in total:")
+    for d in associated_drugs:
+        print(d)
+
+def main():
+    df = load_data()
+    while True:
+        choice = input("Do you want to (1) check interaction between two drugs or (2) check all interactions for one drug? Enter 1 or 2: ")
+        if choice == '1':
+            drug1 = input("Enter the first drug: ")
+            drug2 = input("Enter the second drug: ")
+            check_interaction(df, drug1, drug2)
+        elif choice == '2':
+            drug = input("Enter the drug: ")
+            list_interactions(df, drug)
+        else:
+            print("Invalid input, please enter 1 or 2.")
+
+if __name__ == "__main__":
+    main()

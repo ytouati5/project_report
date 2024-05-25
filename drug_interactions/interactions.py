@@ -4,7 +4,7 @@ import pandas as pd
 # Load the drug interaction data
 def load_data(file_path):
     try:
-        data = pd.read_csv(file_path, header=None, names=['Drug1', 'Drug2'])
+        data = pd.read_csv(file_path, delimiter=';', header=None, names=['Drug1', 'Drug2'])
         return data
     except FileNotFoundError:
         print("The data file was not found.")

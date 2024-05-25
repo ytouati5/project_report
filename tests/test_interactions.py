@@ -1,5 +1,3 @@
-
-
 import unittest
 import pandas as pd
 from io import StringIO
@@ -49,4 +47,3 @@ DrugB;DrugD
 
 if __name__ == '__main__':
     unittest.main()
-

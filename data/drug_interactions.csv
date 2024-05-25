@@ -14251,9 +14251,6 @@ oxtriphylline;grepafloxacin
 oxtriphylline;halothane
 oxtriphylline;heptabarbital
 oxtriphylline;hexobarbital
-oxtriphylline;interferon_alfa-2a,_recombinant
-oxtriphylline;interferon_alfa-2b,_recombinant
-oxtriphylline;interferon_alfa-n1
 oxtriphylline;isoniazid
 oxtriphylline;josamycin
 oxtriphylline;lithium
@@ -19030,8 +19027,6 @@ theophylline;grepafloxacin
 theophylline;halothane
 theophylline;heptabarbital
 theophylline;hexobarbital
-theophylline;interferon_alfa-2a,_recombinant
-theophylline;interferon_alfa-2b,_recombinant
 theophylline;interferon_alfa-n1
 theophylline;isoniazid
 theophylline;josamycin
@@ -19551,10 +19546,6 @@ nisoldipine;thiopental
 nisoldipine;tipranavir
 nisoldipine;treprostinil
 nisoldipine;voriconazole
-interferon_alfa-2a,_recombinant;aminophylline
-interferon_alfa-2a,_recombinant;dyphylline
-interferon_alfa-2a,_recombinant;oxtriphylline
-interferon_alfa-2a,_recombinant;theophylline
 natalizumab;bleomycin
 natalizumab;carboplatin
 natalizumab;carmustine
@@ -20511,8 +20502,6 @@ aminophylline;grepafloxacin
 aminophylline;halothane
 aminophylline;heptabarbital
 aminophylline;hexobarbital
-aminophylline;interferon_alfa-2a,_recombinant
-aminophylline;interferon_alfa-2b,_recombinant
 aminophylline;interferon_alfa-n1
 aminophylline;isoniazid
 aminophylline;josamycin
@@ -21012,10 +21001,6 @@ etodolac;warfarin
 nabilone;trimethobenzamide
 nabilone;triprolidine
 nabilone;trospium
-interferon_alfa-2b,_recombinant;aminophylline
-interferon_alfa-2b,_recombinant;dyphylline
-interferon_alfa-2b,_recombinant;oxtriphylline
-interferon_alfa-2b,_recombinant;theophylline
 levonorgestrel;amobarbital
 levonorgestrel;aprobarbital
 levonorgestrel;artemether
@@ -21468,10 +21453,8 @@ zolmitriptan;almotriptan
 zolmitriptan;amitriptyline
 zolmitriptan;amoxapine
 zolmitriptan;bromocriptine
-zolmitriptan;use_of_two_serotonin_modulators,_such_as_zolmitriptan_and_bromocriptine,_in
 zolmitriptan;buspirone
 zolmitriptan;cabergoline
-zolmitriptan;use_of_two_serotonin_modulators,_such_as_zolmitriptan_and_carbergoline,_inc
 zolmitriptan;citalopram
 zolmitriptan;clomipramine
 zolmitriptan;d-tryptophan

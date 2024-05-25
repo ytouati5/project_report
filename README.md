@@ -68,7 +68,7 @@ To install the package, after cloning from GitHub, activate your Conda environme
 Remember to replace placeholders like `yourgithubusername` with your actual GitHub username and adjust any commands according to your specific repository settings or preferences.
 ```
 
-📖 Code Explanation
+## 📖 Code Explanation
 
 The script provides two main functionalities based on user input:
 

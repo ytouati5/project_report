@@ -65,9 +65,6 @@ To install the package, after cloning from GitHub, activate your Conda environme
 (drugchecker) $ pip install .
 ```
 
-Remember to replace placeholders like `yourgithubusername` with your actual GitHub username and adjust any commands according to your specific repository settings or preferences.
-```
-
 ## 📖 Code Explanation
 
 The script provides two main functionalities based on user input:
@@ -85,4 +82,6 @@ The script provides two main functionalities based on user input:
 - If no interactions are found, it outputs: "No known bad interactions."
 
 Each function uses Pandas dataframes to manage and query the dataset efficiently, ensuring quick responses even with large datasets.
+```
 
+Make sure to replace placeholders such as `yourgithubusername` with your actual GitHub username, and adjust any commands or details to better fit your specific package setup and repository settings. This README will help guide users on how to effectively get started with the package, from installation to utilizing its main features.

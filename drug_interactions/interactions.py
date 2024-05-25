@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 import pandas as pd
@@ -23,6 +24,8 @@ def check_interaction_between_two_drugs(data, drug1, drug2):
         return "Do not associate these two drugs together."
     else:
         return "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
+=======
+>>>>>>> origin/secbranch
 
 
 def check_all_interactions_for_one_drug(data, drug):

@@ -1,3 +1,4 @@
+
 import pandas as pd
 
 def load_data(file_path):
@@ -59,6 +60,6 @@ def main():
         another_check = input("Do you want to check another interaction? (yes/no): ").strip().lower()
         if another_check != 'yes':
             break
-            
+
 if __name__ == "__main__":
     main()

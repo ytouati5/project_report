@@ -1,35 +1,36 @@
 
 import pandas as pd
 
+# Load the drug interaction data
 def load_data(file_path):
     try:
-        data = pd.read_csv(file_path)
+        data = pd.read_csv(file_path, header=None, names=['Drug1', 'Drug2'])
         return data
     except FileNotFoundError:
         print("The data file was not found.")
         return None
+    except pd.errors.ParserError as e:
+        print(f"Error parsing the file: {e}")
+        return None
 
+# Check interaction between two specific drugs
 def check_interaction_between_two_drugs(data, drug1, drug2):
-    if drug1 not in data['Drug'].values or drug2 not in data['Drug'].values:
-        return "Unlisted"
-    
-    interactions = data[(data['Drug'] == drug1) & (data['Interacts With'] == drug2) |
-                        (data['Drug'] == drug2) & (data['Interacts With'] == drug1)]
+    interactions = data[((data['Drug1'] == drug1) & (data['Drug2'] == drug2)) |
+                        ((data['Drug1'] == drug2) & (data['Drug2'] == drug1))]
     
     if not interactions.empty:
         return "Do not associate these two drugs together."
     else:
         return "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
 
+# Check all interactions for one drug
 def check_all_interactions_for_one_drug(data, drug):
-    if drug not in data['Drug'].values:
-        return "Unlisted"
-    
-    interactions = data[data['Drug'] == drug]
+    interactions = data[(data['Drug1'] == drug) | (data['Drug2'] == drug)]
     if interactions.empty:
         return "No interactions found for this drug."
     else:
-        interacting_drugs = interactions['Interacts With'].tolist()
+        interacting_drugs = pd.concat([interactions['Drug1'], interactions['Drug2']])
+        interacting_drugs = interacting_drugs[interacting_drugs != drug].tolist()
         interaction_count = len(interacting_drugs)
         result = f"Interactions for {drug}:\n"
         result += "\n".join(interacting_drugs)

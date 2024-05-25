@@ -9,93 +9,78 @@ Drug Interaction Checker
 
 <br>
 
-A Python package to check for negative interactions between drugs, allowing users to either check the interaction between two specific drugs or list all possible interactions for one drug.
+This package provides tools to check for potential drug interactions using a simple and accessible Python interface.
 
 ## 🔥 Usage
 
 ```python
-from interaction_checker import load_data, check_interaction_between_two, list_interactions
+from drug_interaction_checker import main
 
-interaction_data = load_data('drug_interactions.csv')
-
-option = input("Enter '1' to check the interaction between two drugs or '2' to check all possible interactions of one drug: ")
-
-if option == '1':
-    drug1 = input("Enter the name of the first drug: ")
-    drug2 = input("Enter the name of the second drug: ")
-    result = check_interaction_between_two(drug1, drug2, interaction_data)
-    print(result)
-elif option == '2':
-    drug = input("Enter the name of the drug: ")
-    result = list_interactions(drug, interaction_data)
-    print(result)
-else:
-    print("Invalid option. Please enter '1' or '2'.")
+# Begin interaction checking
+main()
 ```
 
-This usage example shows how to quickly leverage the package's main functionalities. After loading the interaction data, you can either check the interaction between two drugs or list all possible interactions for one drug based on user input.
+This usage example demonstrates how to engage with the package's main functionality directly from the command line. After importing the `main` function, you simply run it, and it will interactively prompt you for inputs to either check interactions between two drugs or find all interactions for one drug.
 
 ## 👩‍💻 Installation
 
 Create a new environment, you may also give the environment a different name.
 
-```
-conda create -n drug_interactions python=3.10
-```
-
-```
-conda activate drug_interactions
-(drug_interactions) $ pip install .
+```bash
+conda create -n drugchecker python=3.10
 ```
 
-If you need jupyter lab, install it
-
+```bash
+conda activate drugchecker
+(drugchecker) $ pip install .
 ```
-(drug_interactions) $ pip install jupyterlab
+
+If you need Jupyter Lab, install it:
+
+```bash
+(drugchecker) $ pip install jupyterlab
 ```
 
 ## 🛠️ Development installation
 
 Initialize Git (only for the first time).
 
-```
+Note: You should have created an empty repository on `https://github.com/yourgithubusername/Drug-Interaction-Checker`.
+
+```bash
 git init
-git add *
+git add * 
 git add .*
-git commit -m "Initial commit"
+git commit -m "Initial commit" 
 git branch -M main
-git remote add origin git@github.com:yourusername/drug_interactions.git
+git remote add origin git@github.com:yourgithubusername/Drug-Interaction-Checker.git 
 git push -u origin main
 ```
 
-Then add and commit changes as usual.
+Then add and commit changes as usual. 
 
-To install the package, run
+To install the package, after cloning from GitHub, activate your Conda environment and run:
 
-```
-(drug_interactions) $ pip install -e ".[test,doc]"
-```
-
-### Run tests and coverage
-
-```
-(drug_interactions) $ pip install tox
-(drug_interactions) $ tox
+```bash
+(drugchecker) $ pip install .
 ```
 
-## 📖 Code Explanation
+Remember to replace placeholders like `yourgithubusername` with your actual GitHub username and adjust any commands according to your specific repository settings or preferences.
+```
+
+📖 Code Explanation
 
 The script provides two main functionalities based on user input:
 
-1. **Check Interaction Between Two Drugs**:
-    - The user is prompted to enter the names of two drugs.
-    - The script checks if these two drugs appear on the same line in the dataset.
-    - If they do, it outputs: "Do not associate these two drugs together."
-    - If they don't, it outputs: "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
-    - If one or both drugs are not found in the data, it outputs: "Unlisted."
+Check Interaction Between Two Drugs:
 
-2. **List All Possible Interactions of One Drug**:
-    - The user is prompted to enter the name of a drug.
-    - The script lists all drugs that interact negatively with the specified drug.
-    - If no interactions are found, it outputs: "No known bad interactions."
+The user is prompted to enter the names of two drugs.
+The script checks if these two drugs appear on the same line in the dataset.
+If they do, it outputs: "Do not associate these two drugs together."
+If they don't, it outputs: "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
+If one or both drugs are not found in the data, it outputs: "Unlisted."
+List All Possible Interactions of One Drug:
 
+The user is prompted to enter the name of a drug.
+The script lists all drugs that interact negatively with the specified drug.
+If no interactions are found, it outputs: "No known bad interactions."

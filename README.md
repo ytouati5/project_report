@@ -72,15 +72,17 @@ Remember to replace placeholders like `yourgithubusername` with your actual GitH
 
 The script provides two main functionalities based on user input:
 
-Check Interaction Between Two Drugs:
+### Check Interaction Between Two Drugs:
+- The user is prompted to enter the names of two drugs.
+- The script checks if these two drugs appear on the same line in the dataset.
+- If they do, it outputs: "Do not associate these two drugs together."
+- If they don't, it outputs: "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
+- If one or both drugs are not found in the data, it outputs: "Unlisted."
 
-The user is prompted to enter the names of two drugs.
-The script checks if these two drugs appear on the same line in the dataset.
-If they do, it outputs: "Do not associate these two drugs together."
-If they don't, it outputs: "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
-If one or both drugs are not found in the data, it outputs: "Unlisted."
-List All Possible Interactions of One Drug:
+### List All Possible Interactions of One Drug:
+- The user is prompted to enter the name of a drug.
+- The script lists all drugs that interact negatively with the specified drug.
+- If no interactions are found, it outputs: "No known bad interactions."
 
-The user is prompted to enter the name of a drug.
-The script lists all drugs that interact negatively with the specified drug.
-If no interactions are found, it outputs: "No known bad interactions."
+Each function uses Pandas dataframes to manage and query the dataset efficiently, ensuring quick responses even with large datasets.
+

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-
 import pandas as pd
-
 
 def load_data(file_path):
     try:
@@ -11,7 +7,6 @@ def load_data(file_path):
     except FileNotFoundError:
         print("The data file was not found.")
         return None
-
 
 def check_interaction_between_two_drugs(data, drug1, drug2):
     if drug1 not in data['Drug'].values or drug2 not in data['Drug'].values:
@@ -24,9 +19,6 @@ def check_interaction_between_two_drugs(data, drug1, drug2):
         return "Do not associate these two drugs together."
     else:
         return "No interaction. Warning: The absence of drug interactions does not guarantee safety. Always consult a healthcare professional."
-=======
->>>>>>> origin/secbranch
-
 
 def check_all_interactions_for_one_drug(data, drug):
     if drug not in data['Drug'].values:
@@ -67,6 +59,6 @@ def main():
         another_check = input("Do you want to check another interaction? (yes/no): ").strip().lower()
         if another_check != 'yes':
             break
-
+            
 if __name__ == "__main__":
     main()

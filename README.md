@@ -1,5 +1,5 @@
 
-![Project Logo](assets/banner.png)
+![Project Logo](assets/logo.png)
 
 ![Coverage Status](https://codecov.io/gh/ytouati5/project_report/branch/main/graph/badge.svg)
 

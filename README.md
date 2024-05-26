@@ -1,7 +1,7 @@
 
 ![Project Logo](assets/banner.png)
 
-![Coverage Status](assets/coverage-badge.svg)
+![Coverage Status](https://codecov.io/gh/ytouati5/project_report/branch/main/graph/badge.svg)
 
 <h1 align="center">
 Drug Interaction Checker

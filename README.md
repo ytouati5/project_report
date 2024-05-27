@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="Project Logo" width="200"/>
+  <img src="assets/logo.png" alt="Project Logo" width="300"/>
 </p>
 
 ![Coverage Status](https://codecov.io/gh/ytouati5/project_report/branch/main/graph/badge.svg)

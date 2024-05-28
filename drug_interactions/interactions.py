@@ -1,7 +1,6 @@
-
 import pandas as pd
 
-# Load the drug interaction data
+# Load data
 def load_data(file_path):
     try:
         data = pd.read_csv(file_path, delimiter=';', header=None, names=['Drug1', 'Drug2'])
@@ -31,6 +30,7 @@ def check_all_interactions_for_one_drug(data, drug):
     else:
         interacting_drugs = pd.concat([interactions['Drug1'], interactions['Drug2']])
         interacting_drugs = interacting_drugs[interacting_drugs != drug].unique().tolist()  # Remove duplicates and exclude the input drug
+        interacting_drugs.sort()
         interaction_count = len(interacting_drugs)
         result = f"Interactions for {drug}:\n"
         result += "\n".join(interacting_drugs)

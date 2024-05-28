@@ -30,7 +30,7 @@ def check_all_interactions_for_one_drug(data, drug):
         return "No interactions found for this drug."
     else:
         interacting_drugs = pd.concat([interactions['Drug1'], interactions['Drug2']])
-        interacting_drugs = interacting_drugs[interacting_drugs != drug].tolist()
+        interacting_drugs = interacting_drugs[interacting_drugs != drug].unique().tolist()  # Remove duplicates and exclude the input drug
         interaction_count = len(interacting_drugs)
         result = f"Interactions for {drug}:\n"
         result += "\n".join(interacting_drugs)

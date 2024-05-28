@@ -6,7 +6,6 @@ from drug_interactions import load_data, check_interaction_between_two_drugs, ch
 class TestDrugInteractions(unittest.TestCase):
 
     def setUp(self):
-        
         self.csv_data = StringIO("""Drug1;Drug2
 DrugA;DrugB
 DrugA;DrugC
